@@ -1,6 +1,19 @@
 import numpy as np
 from sklearn.decomposition import NMF
 import pandas as pd
+import zipfile
+
+# Specify the path to the zip file
+zip_file_path = 'user_ratings.zip'
+
+# Create a ZipFile object
+zip_ref = zipfile.ZipFile(zip_file_path, 'r')
+
+# Extract all the contents of the zip file to a directory
+zip_ref.extractall('')
+
+# Close the ZipFile object
+zip_ref.close()
 
 movies_pd = pd.read_csv("movies.csv", index_col=0)
 movies = movies_pd['0'].to_list()
